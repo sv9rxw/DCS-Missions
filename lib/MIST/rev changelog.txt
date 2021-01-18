@@ -1,0 +1,599 @@
+v82
+-Its been 3 years since I last published an update apparently, so I barely remember
+-Fixed a locality issue that caused altitudes to become silly if spawning groups a specific way
+-Added conversion code for assorted useful things like speed, temperature, distance, etc. 
+
+v74
+-fixed mist.getCurrentGroupData to return more data
+
+v73
+-fixed mist.time.getDate to account for changes made to the mission file format related to how the mission start time and date are saved. Also added in code to correctly account for leap years.
+- fixed issue in DB updating checking the incorrect value
+- fixed mist.getUnitSkill. Slightly reworked how the function got the data.
+v72
+fixed bug with flagFuncs to correctly check and assign unitTableDef entries.
+
+v71
+added shapename DB entry
+dynAddStatic will now add a shapename if the object type matches a shapename DB entry
+
+v70
+Added assorted error checking on a few functions
+v69
+- Updated mission used to create DBs. There should no longer be any unit
+names that are the same as group names.
+
+Dynamically generated names will now be indexed accordingly to their
+category. Used to be just a single counter shared between all.
+
+Several changes and fixes to dynAddStatic
+-Fixed function wasn't working when given certain params.
+-fixed country checker to better account for country names with spaces.
+This fix was applied to dynAdd but not dynAddStatic, I corrected this.
+-Optimized it slightly. Trimmed the fat of some of the code.
+
+v68
+-DB refactor-start
+
+v66
+-Added default setting for logger if no value present
+-Added documentation for logger
+
+v65
+-Fixed update db tables not updating
+
+v64
+-Fixes to debug code
+
+v62 and v63
+-Donno
+
+v61 - 4.1 release
+-Fixed locality issue with unitToWP
+
+v60
+-Fixed issue with country names in the editor not matching enum country
+name values. For example "Best Korea" could not match with "BEST_KOREA".
+Thanks lukrop of this fix
+-Fixed locality issue with mist.getNorthCorrection
+-Added function mist.utils.unitToWP
+-added function mist.utils.vecToWP
+
+Both of these functions deal with creating a WP table from the passed
+values. unitToWP also returns a speed variable based on the current
+velocity of the unit
+
+v59
+-removed the new 3rd variable from mist.utils.getDir and just made the 2nd variable optional instead
+-Added check to DB update functions to only update if data from the group has changed from what is currently in the DB. This fixes an issue I had where some data was lost if you spawned a group normally after mission start and then used a respawn, clone, or teleport function on said group
+-fixed issue with dynAdd functions naming a group with the country ID insead of country name
+-added mist.getAvgPoint(). Function is similar to mist.getAvgPos except it uses raw vec2/3 coordinates instead of units
+-added mist.utils.roundTbl() Has the same input values as mist.utils.round except it accepts a table and it rounds all numbers in the first level of the table to the passed percision. 
+
+v58
+-added optional variable to mist.utils.getDir() If present this function will return the "raw" heading, this is useful in assigning the heading variable within a task.
+-mist.utils.makeVec3 now supports being given a table in WP format. Specifically it now coverts a table {x, y, alt) to vec3
+
+
+v57
+-fixed bug with groupRandomDistSelf improperly declaring the y variable
+-fixed flagFunc.units_in_moving_zones not checking for a unitNameTable for the zone_units
+-fixed bug in flagFunc.units_LOS when given a unitNameTable for both entries.
+
+v56
+-fixed bug with dynAdd and dynAddStatic not recognizing new countries in dcs 1.5
+
+v55
+- Release v4
+v54
+-added a check when adding unitTypes for messages to figure out the correct in-game unit name for a given unit. For example the Mi-8 helicopter is always displayed as 'Mi-8MTV2', however its actual in game name is 'Mi-8MT', this feature allows for you to list 'Mi-8MTV2', 'Mi-8MTV', or 'Mi-8' to get messages sent to the Mi-8. Shortcut also works for the relevant aircraft 'Mig-21', 'Mig-15', 'FW-190', and 'Bf-109'.
+
+v53
+-added mist.getAvgPos now accepts static objects in addition to units.
+-made DB creation check the mission editor version for no paticular reason
+-added mist.getLastDBUpdateTime which returns the most recent time the DB update function has run. 
+-changed mist.makeUnitTable processed entry to return the time it was processed instead of a boolean value. 
+-Changed teleport/respawn/clone functions to spawn aircraft at random altitudes instead of constants if the point given is vec2/not specified.
+-Fixed FlagFuncs will now recognize units added in dynamically. Note this only applies if you send it unitTableNames identifier and not the table that the function creates. 
+-Added variable to all flagfuncs. unitTableDef is the original definition used for units. 
+-Fixed all getUserFlag checks to compare with numerical value instead of boolean
+
+v52
+-Fixed check in mist.getUnitsLOS to verify units are active in a mission
+-Fixed check in mist.goRoute to verify both the group and controller are valid before assigning the route
+
+v51
+-Fixed bug with message system
+-Added a check to the message system so combined arms messages wont be sent if CA slots are not in a mission.
+
+v50
+-something got deleted from v49 so this fixed it.
+
+v49
+-fixed flagFuncs.group_dead and group_alive issue caused via a DCS bug.  
+
+v48
+-added support for cargo objects within dynAdd and DB scripts
+-DBs added entries for static objects
+--mass
+--canCargo
+--categoryStatic
+-fixed getCurrentData to return static data correctly
+-fixed getGroupData to return static data correctly
+- start_time now saved into DBs for dynAdded objects
+-fixed bug with mist message hibernation code
+
+
+v47 -- not uploaded to git since it wasn't finished.
+- fixed mist.dynAdd not checking for or correctly adding a start_time variable
+-- startTime and start_time are both valid
+- fixed mist.teleportToPoint with regard to the start_time change
+-- if a start_time isn't 0 and the group is being respawned or cloned, the function will set the spawn time relative to the current time.
+-- Group set to spawn in 20 seconds after mission start, at 5 seconds mist.cloneGroup() function is run on said group. The new group will be set to spawn in 20 seconds into the mission.
+-- If the mist.CloneGroup was run at 25 seconds with the base group already spawned, the cloned group will be instantly spawned. 
+- changed mist.time.getMilString to mist.getMilString
+- changed mist.time.getClockString to mist.getClockString
+- changed mist.time.getDateStrimg to mist.getDateString
+- added mist.time.milToGame now accepts a 2nd variable
+
+v46
+-added mist.time.milToGame
+-added mist.time.getDate
+-added mist.time.getDHMS
+-added mist.time.converToSec
+-added mist.time.getMilString
+-added mist.time.getClockString
+-added mist.time.getDateString
+-added mist message handling now hiberates if not activly displaying a message
+-fixed minor bug from message refactor
+
+
+v45
+-Added values to DBs
+--hidden
+--AddPropAircraft
+
+-getGroupData now returns hidden and addPropAircraft values
+-getCurrentGroupData now returns hidden value
+-mist message handling has been updated
+--Refactored message display code to be more effecient and remove repeated code. 
+--Added "multSound" for mist.message.add. This allows for multiple sound files to be attached to a single message. Files are given a user defined timestamp for when the play within the message.  
+
+v44
+-fxed getPayload for real this time
+-addEventHandler now correctly returns the Id value
+-message.add now also accepts variable 'fileName' for the sound file, this is in addition to the .sound variable
+-fixed issue with teleportToPoint
+
+v43
+-fixed issue with getPayload
+-dynAdd and dynAddStatic now return the full new table and not just its name. The name value is still accessible via returned table.name
+
+v42 v3.6 release
+-added mist.getRandomPointInZone. Function uses mist.getRandomPointInCircle.
+-fixed bug with altitude switching to radio if baro was specified
+-added the speed to DBs if a unit is dynamically spawned in
+-added extra checks in case Group/Unit.getByName returns dead objects
+- Mission file searching functions now search by Id instead of group or unit names.
+The name input variable hasnt changed, value gets converted to Id automatically if found. 
+Functions now also accept a numerical groupId or unitId
+getPayload
+getGroupPayload
+getGroupPoints
+getGroupRoute
+
+--re added the mist named file
+
+v38
+- fixed bug with optional variables for coordinate messages not actually being optional
+ 
+v37
+- Teleport To Point related functions now check the altitude of a given point if specified for teleporting aircraft
+- fixed bug with mist.flagFunc.group_alive_less_than and mist.flagFunc.group_alive_more_than
+
+v36
+-fixed a bug with databases getting an incorrect countryId value
+
+v35
+- fixed bug with mist.teleportToPoint 
+
+v34 v3.5 release
+- fixed missing entries in dbupdate
+- isActive() check added to getUnitsInPolygon
+
+v33
+- added getGroupPayload
+- re-wrote how mist.stringMatch worked. no functional difference between previous iteration
+- DBs now contain callsign, psi, modulation, frequency, uncontrolled, radioSet, hardpoint_racks, and onboard_num. Dependent on whether or not group type has the option available. 
+
+
+v32
+- flagfuncs now support string values for flag and stop flags
+- optimized and fixed issue with mist.getGroupData
+
+
+v31
+- added more special characters to ignore for mist.stringMatch
+- added 3rd variable to mist.string to define if strings are case sensitive
+- added mist.randomizeNumTable
+- modified mist.randomizeGroupOrder to use mist.randomizeNumTable
+- added mist.terrainHeightDiff
+
+v30
+-Optimizations and fixes of refactoring
+-mist.dbUpdate changed to a local dbUpdate function. now no longer accessible globally
+- added mist.matchString because I always get it backwards
+
+v29
+-Refactoring dbUpdate and related functions integration
+
+v28
+added mist.getUnitSkill
+added mist.stringMatch
+added mist.groupTableCheck
+added mist.spawnRandomizedGroup
+added mist.randomizeGroupOrder
+added mist.getUnitsInPolygon
+
+
+v27
+added mist.flagFunc.group_alive
+added mist.flagFunc.group_dead
+added mist.flagFunc.group_alive_more_than
+added mist.flagFunc.group_alive_less_than
+
+
+v025 changelog mist 3.4.25
+-fixed bug with mist.message.add with regard to updating existing messages
+
+v024 changelog mist 3.4.24
+-teleportToPoint now accepts vars.gpName or vars.groupName for the groups name
+-fixed bug with  mist.flagFunc.units_in_polygon() toggle option
+
+v023 changelog Mist 3.4.23
+-added country table entry for mist.getGroupData()
+-mist.getHeading now accepts optional second variable.  Set to true to get cartesian-based heading instead of lat/lon-based heading. 
+-fixed mist.getLeadPos if passed group table contains a dead leader
+-fixed minor bug with msgDisplay (thanks svenvandevelde)
+-fixed bug with dynamically added groups (thanks Ajax)
+
+v022 changelog Mist 3.3
+-added mist.dynAddStatic()
+-added mist.random()
+-added mist.getmist.nextUnitId()
+-added mist.getmist.nextGroupId()
+-added shape_name to DBs for static objects to use
+-added static object support for teleportToPoint and related scripting functions
+-changed print statements to env.info for some functions
+-Fixed Bug with makeVec3GL
+-fixed bug with mist.flagFuncs.point_in_polygon related to the toggle parameter
+-fixed bug with messages not correctly being sent to the right groups
+-numerous changes mist.dynAdd and mist.dbUpdate to be more effecient and squash bugs
+
+-- mist.dynAdd now returns a string of the groups name instead of the table of the group object
+
+v021 changelog Mist 3.2 Hofix release
+- fixed bug with mist.getCurrentGroupData so that it returns a string for both coalition and category
+- fixed bug with mist.teleportToPoint to properly default to correct surface types
+- added online documentation. Available at: http://wiki.hoggit.us/view/Mission_Scripting_Tools_Documentation
+
+v020 changelog Mist v3.2 release
+- added mist.utils.makeVec3GL() returns a vec 3 coordinate at ground level of a given vec2/vec3 coordinate
+- added mist.ground.patrol
+- added mist.ground.patrolRoute
+- fixed bug with mist.ground.buildWP not accepting formations. Minor organizational changes
+- helipad Id is now retrieved on mist.getGroupRoute
+- added livery_id to DBs so helicopters don't spawn without skins
+- added task to DBs and dynAdd scripts so that AI aircraft will engage targets if respawned
+
+v019 changelog -- Mist v3.1 Release
+- fixed bug with sending sounds to clients
+- if an audio message is sent to correct coalition or 'all', CA players will now hear it
+- added speed entry to units DBs
+- fixed typo with mist.respawnGroup returning a nil value
+- modified mist.cloneGroup, mist.teleportGroup, mist.respawnGroup behavior if task variable is given.
+--If task is anything except for a number, the task become the groups default route.
+--if task is a number, then the route will be assigned after however many seconds you specify. 
+- mist.dynAdd now accepts a route variable as part of the table passed to it
+- overloaded mist.dynAdd to accept route data if the points part of the table is missing. groupTable.route[1]... instead of the correct format groupTable.route.points[1]...
+- fixed mist.getPayload, must now be sent a string 
+
+v018 changelog -- Mist v3.0 Release
+- mist.message.add now accepts a "sound" vars to play audio. Due to how it is implemented, Combined Arms players will be UNABLE hear any sounds.
+- Reorganized documentations a bit
+- Fixed bug with how functions called mist.toStringLL
+- Fixed bug with mist.teleportToPoint
+
+v017 changelog
+- fixed stuff broken by v016 additions
+- Flag funcs now accept a toggle variable. This will set the flag to false when the conditions arent met. 
+	Applies to:
+	-mist.flagFunc.units_in_polygon
+	-mist.flagFunc.units_in_zones
+	-mist.flagFunc.units_in_moving_zones
+	-mist.flagFunc.units_LOS
+- added mist.DBs.MEunits
+- mist.DBs.units now updates live as needed
+- added getAvgGroupPos
+- added mist.msgMGRS	
+- added mist.msgLL	
+- added mist.msgBR	
+- added mist.msgBRA	
+- added mist.msgBullseye	
+- added mist.msgLeadingMGRS	
+- added mist.msgLeadingLL	
+- added mist.msgLeadingBR	
+
+
+v016 Changelog
+- Several DBs are now updated as units are dynamically added to the mission
+- Country names in DBs are all now lower case.
+- Fixed bug with DBs where countryId was the mission table index of the country table and not the actual country Id
+- Added startTime to group tables
+- Imported and renamed several Spawn/Clone/Teleport functions
+-- Added mist.dbUpdate()
+-- added mist.dynAdd()
+-- added mist.getCurrentGroupData()
+-- added mist.getGroupData()
+-- added mist.getPayload()
+-- added mist.teleportToPoint()
+-- added mist.respawnInZone()
+-- added mist.teleportInZone()
+-- added mist.cloneInZone()
+-- added mist.respawnGroup()
+-- added mist.cloneGroup()
+-- added mist.teleportGroup()
+
+v015 chagelog 
+- added mist.DBs.MEunitsByName 
+- added mist.DBs.MEunitsById 
+- added mist.DBs.MEunitsByCat 
+- added mist.DBs.MEunitsByNum
+- added mist.DBs.MEgroupsByName
+- added mist.DBs.MEgroupsById
+
+- added mist.isTerrainValid
+- added mist.DBs.const.callsigns
+- mist.getRandPointInCircle now accepts both vec 2 and 3
+- addded alt and alt_type to units databases
+
+- bug with mist.removeFunction should be fixed now.
+- mist.message.remove now accepts a self variable, not an integer
+- mist.message.removeById added; works like the old mist.message.remove
+- fixed mist.getUnitsInZones and mist.getUnitsInMovingZones to return only activated units
+
+
+v014 changelog  -- Mist 2.0 Release
+- fixed compatibility for SSE v1.2.4
+- added mist.fixedWing.buildWP
+- added mist.heli.buildWP
+- added heading and player can drive to units database
+
+]]
+
+--[[v013 change log
+- added mist.getLeadingLLString
+- added mist.getLeadingBRString
+- added mist.getRandPointInCircle
+]]
+
+--[[v012 change log
+- added innerRadius optional variable to mist.groupToRandomPoint
+- mist.groupToRandomPoint now mist.groupToRandomPoint
+- fixed some problems in mist.groupToRandomPoint
+- removed randomized speed from mist.ground.buildWP
+- added default speed to mist.groupToRandomPoint
+- mist.getAvgPos returns nil if no units found alive.
+- added mist.utils.getDir
+- mist.vec.scalar_mult officially renamed to mist.vec.scalarMult; old name still works though.
+- mist.vec.getUnitVec added
+- mist.utils.makeVec2 and mist.utils.makeVec3 always return back a new vector now.
+- added mist.utils.get2DDist
+- added mist.utils.get3DDist
+- added mist.vec.rotateVec2
+- added mist.getMGRSString
+- added mist.getLeadingMGRSString
+- added mist.getLLString
+- added mist.getBRString
+- added mist.utils.zoneToVec3
+]]
+
+
+--[[
+v011 change log
+- added mist.utils.metersToNM
+- added mist.utils.metersToFeet
+- added mist.utils.NMToMeters
+- added mist.utils.feetToMeters
+- added mist.utils.mpsToKnots
+- added mist.utils.mpsToKmph
+- added mist.utils.knotsToMps
+- added mist.utils.kmphToMps
+
+- added mist.tostringMGRS
+- added mist.tostringLL
+- added mist.tostringBR
+
+- added mist.getAvgPos
+- added mist.getLeadPos 
+
+- added mist.message.add
+- added mist.message.remove
+
+- added mist.goRoute
+- added mist.getGroupRoute 
+- added mist.groupToPoint
+- added mist.groupToRandomZone
+- added mist.groupRandomDistSelf
+
+- added mist.ground.buildWP
+
+
+v010 change log mist 1.1
+- fixed a bug with mist.addEventHandler
+
+v009 changelog
+- renamed mist.unitsInZonesByName to mist.getUnitsInZones
+- renamed mist.getDeadMapObjsInZonesByName to mist.getDeadMapObjsInZones
+- renamed mist.unitsInMovingZonesByName to mist.getUnitsInMovingZones
+- renamed mist.unitsLOSByName to mist.getUnitsLOS
+- renamed mist.mapobjs_dead_in_zones to mist.flagFunc.mapobjs_dead_zones
+- renamed mist.mapobjs_dead_in_polygon_zone to mist.flagFunc.mapobjs_dead_polygon
+- renamed mist.units_in_zones to mist.flagFunc.units_in_zones
+- renamed mist.units_in_moving_zones to mist.flagFunc.units_in_moving_zones
+- renamed mist.units_LOS to mist.flagFunc.units_LOS
+- renamed mist.units_in_polygon_zone to mist.flagFunc.units_in_polygon
+- mist.scheduleFunction now calls scheduled functions with pcall
+
+- mist.getAttitude now accepts a Unit instead of a unit name
+- mist.getHeading now accepts a Unit instead of a unit name 
+- mist.getPitch now accepts a Unit instead of a unit name 
+- mist.getRoll now accepts a Unit instead of a unit name
+- mist.getYaw now accepts a Unit instead of a unit name
+- mist.getAoA now accepts a Unit instead of a unit name
+- mist.getClimbAngle now accepts a Unit instead of a unit name
+- mist.demos.printAngles now accepts a Unit instead of a unit name 
+- renamed mist.demos.printAngles to mist.demos.printFlightData
+- mist.demos.printFlgihtData now additionally displays absolute velocity, absolute acceleration, Yaw plus AoA, transverse G loading, axial G loading, absolute G loading, energy, dE/dt
+- added country, countryId, and coalition to the group level of the DBs.
+
+- added energy, dE/dt, G loading 
+
+- added mist.build, mist.majorVersion, mist.minorVersion
+   - mist.build - the build version.  Increments every time changes are made and debugged.
+   - mist.majorVersion - changes with publicly released major content additions
+   - mist.minorVersion - changes with publicly released bug fixes/minor edits.
+
+- added a "Mist version X.X.X loaded." message to dcs.log.
+
+- FIXED A BUG WITH mist.scheduleFunction where functions with rep values would not run!!!!
+- Adjusted timer.scheduleFunction in mist.main.
+ 
+- mist.DBs.deadObjects should now behave properly when an object dies that has the same runtime id_ value of another object that has previously died (no longer uses the __newindex metatable event).
+- mist.addEventHandler now returns an integer value for id, rather than accepts a variable for id (this makes it more like mist.scheduleFunction).
+- mist.removeEventHandler now returns true or false
+]]
+
+--[[v008 changelog
+- added mist.DBs.missionData   (database of basic mission information. Start time, theatre of war, and filenames saved within mission
+- added mist.DBs.removedAliveUnits
+- some debug messages commented out
+
+- fixed? a bug with mist.DBs.dead_objects when trying to list dead players
+	also, dead objects with duplicate runtime ids as a previous dead object will be indexed differently (as a string, such as "11454224 #1")
+- fixed an oversight with mist.DBs.aliveUnits where units that were dead would be listed.
+
+- renamed mist.schedule_function to mist.scheduleFunction
+- renamed mist.remove_function to mist.removeFunction
+- renamed mist.utils.deepcopy to mist.utils.deepCopy
+- renamed mist.utils.TypeCheck to mist.utils.typeCheck
+- renamed mist.utils.serialize_wcycles to mist.utils.serializeWithCycles
+- renamed mist.utils.one_line_serialize to mist.utils.oneLineSerialize
+- renamed mist.utils.tableshow to mist.utils.tableShow
+- renamed mist.debug.write_data to mist.debug.writeData
+- renamed mist.debug.dump_DBs to mist.debug.dumpDBs
+- renamed mist.DBs.zones_by_name to mist.DBs.zonesByName
+- renamed mist.DBs.zones_by_num to mist.DBs.zonesByNum
+- renamed mist.DBs.NavPoints to mist.DBs.navPoints
+- renamed mist.DBs.units_by_name to mist.DBs.unitsByName
+- renamed mist.DBs.units_by_Id to mist.DBs.unitsById 
+- renamed mist.DBs.units_by_cat to mist.DBs.unitsByCat
+- renamed mist.DBs.units_by_num to mist.DBs.unitsByNum
+- renamed mist.DBs.groups_by_name to mist.DBs.groupsByName
+- renamed mist.DBs.groups_by_Id to mist.DBs.groupsById
+- renamed mist.DBs.humans_by_name to mist.DBs.humansByName
+- renamed mist.DBs.humans_by_Id to mist.DBs.humansById
+- renamed mist.DBs.alive_units to mist.DBs.aliveUnits
+- renamed mist.DBs.dead_objects to mist.DBs.deadObjects
+- renamed mist.UnitsInZonesByName to mist.unitsInZonesByName
+- renamed mist.UnitsInMovingZonesByName to mist.unitsInMovingZonesByName
+- renamed mist.UnitsLOS to mist.unitsLOSByName
+
+DB field name changes:
+Unit -> unit
+rt_id removed
+Object -> object
+ObjectType -> objectType
+ObjectPos -> objectPos
+ObjectData -> objectData
+country_id -> countryId
+unit_name -> unitName
+group_name -> groupName
+resources -> files
+]]
+
+--[[v007 change log
+- added mist.DBs.zones_by_name  	(DB of trigger zones placed in editor, organized by name)
+- added mist.DBs.zones_by_num		(DB of trigger zones placed in editor, in numerical order)
+- added mist.DBs.NavPoints		(DB of Initial Points/nav points placed in editor, sorted by coalition)
+
+
+- added mist.getDeadMapObjsInZonesByName
+- added mist.getDeadMapObjsInPolygonZone 
+
+- added mist.mapobjs_dead_in_zones
+- added mist.mapobjs_dead_in_polygon_zone
+
+]]
+
+--[[ v006 change log
+- added mist.units_in_polygon_zone
+- added maxalt variable to mist.pointInPolygon  -- Code from http://softsurfer.com/Archive/algorithm_0103/algorithm_0103.htm
+- fixed probable bug with stopflag conditions in trigger functions
+- mist.units_in_zones now uses new type check function, so it needs to be re-tested.
+- added mist.units_in_moving_zones
+- fixed a bug with mist.getGroupPoints
+- fixed a bug with mist.pointInPolygon
+
+]]
+--[[ v005 change log  (changes over uploaded v004:)
+
+- Added mist.debug
+- Added mist.debug.dump_DBs
+- mist.utils.write_table renamed to mist.debug.write_data 
+- mist.utils.dump_G renamed to mist.debug.dump_G
+- error messages adjusted in mist.debug.dump_G and mist.debug.write_data
+
+- mist.demos.printAngles now accepts unitname string input variable
+
+- added mist.DBs.units_by_cat (units by category, such as ship, plane, vehicle, helicopter, static).  Inside each category, units indexed numerically.
+
+- added mist.DBs.units_by_num - units, indexed numerically (BUT NOT BY unitId!).
+
+- added mist.DBs.alive_units - indexed by runtime id_, contains all the alive units (not static objects) (same info as in the other DBs), 
+  PLUS the alive unit's Unit object, and Pos3 position.  Updated no less frequently than once per second.
+     
+	 - added update_alive_units coroutine to populate this table.
+	 - modified mist.main to run this coroutine.
+	(NOTE TO SELF: May need to make an old_alive_units table too)
+
+- mist.DBs.dead_objects table added- table of dead objects, indexed by runtime id_.  
+	Example entries:
+	mist.DBs.dead_objects = {
+		[11553252] = {
+			object = { id_ = 11553252 },
+			objectType = 'vehicle',
+			objectData = { ..... }, -- the same data contained in the alive_units entry for this vehicle
+			Pos = {x = -562214.67543, y = 2243.4221, z = 1150221.54514 }, -- Position the vehicle died at.
+		},
+		[16231153] = {
+			object = { id_ = 16231153 },
+			objectType = 'static',
+			objectData = { ..... }, -- the same data contained in the regular DBs for this static object
+			Pos = {x = -6423121.23342, y = 152.1231, z = 1055212.331 }, --Position the static object died at.
+		},
+		[123555223] = {
+			object = { id_ = 123555223 },
+			objectType = 'building',
+			Pos = {x = -505213.5532, y = 531.3365, z = 10733913.33214 }, --Position the map object died at
+		},
+		[21255292] = {
+			object = { id_ = 21255292 },  -- object that could be be correlated to a unit, or a static object, and that getPosition failed on.
+			objectType = 'unknown',
+		},
+	}
+	
+	- added default event handler to add objects to mist.dead_objects
+	- modified __newindex metamethod for mist.DBs.dead_objects to derive dead object properites
+
+]]
