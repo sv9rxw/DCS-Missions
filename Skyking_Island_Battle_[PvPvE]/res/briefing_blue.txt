@@ -1,0 +1,77 @@
+===== MISSION ==========================
+OBJECTIVES:
+ 1 - Strike & Capture Tunb Island AFB
+ 2 - Strike & Capture Tunb Kochak
+
+Armored units on each target:
+ - 16x BMP-2
+
+Air Defence units on each target:
+ - 1x SAM Tor 
+ - 1x SAM Osa
+ - 2x SRD ZSU-23-4 Shilka 
+ - 4x Support tracks
+
+Achive missions goals with whatever means 
+necessary. 
+
+
+===== WAYPOINTS ========================
+
+AIRPLANES
+ 1 - HOME BASE   : Al Minhad AFB
+ 2 - ALT BASE    : Ras Al Khaimah Intl
+ 3 - DEFEND #1   : Abu Musa Island
+ 4 - DEFEND #2   : Sirri Island
+ 5 - TARGET #1   : Tunb Island aFB
+ 6 - TARGET #2   : Tunb Kochak
+ 
+HELIS
+ 1 - DEFEND #1 & FARP : Abu Musa Island
+ 2 - DEFEND #2        : Sirri Island
+ 3 - TARGET #1        : Tunb Island AFB
+ 4 - TARGET #2        : Tunb Kochak
+
+
+===== COMMS ===========================
+SRS Common               : 251.000 (AM)  
+
+AWACS/EWR/GCI
+ - Overlord 1-1          : 251.000 (AM)
+ - Axeman-1 (Ground EWR) : 131.000 (AM)
+
+FAC Tunb Island:
+ - Eyeball-1 SOF JTAC    : 131.500 (AM)
+
+FAC Tunb Kochak:
+ - Pointer-1 SOF JTAC    : 132.500 (AM)
+
+AFAC:
+ - Dodge MQ-1A Predator  : 130.200 (AM)
+
+ 
+HELI CARRIER LHA-1 Tarawa
+ - TACAN            : 1X [BTR]
+ - ATC              : 127.500 
+
+Al Minhad AFB 
+ - TACAN            : 99X [MIN]
+ - ATC              : 250.100, 118.550,
+                      38.500, 3.800
+ 
+Ras Al Khaimah Intl
+ - TACAN (portable) : 14X [RAS]
+ - VOR              : 113.600
+ - ATC              : 250.900, 121.600,
+                      39.300, 4.200
+ 
+Abu Musa Island
+ - NDB              : 285.00 kHz
+ - ATC              : 250.400, 122.900, 
+                      38.850, 3.975
+ 
+Sirri Island
+ - VOR              : 113.750 [SIR]
+ - NDB              : 300.00 kHZ [SIR]
+ - ATC              : 250.250, 135.050,
+                      38.650, 3.875

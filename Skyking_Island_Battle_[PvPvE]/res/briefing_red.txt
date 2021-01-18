@@ -1,0 +1,77 @@
+===== MISSION ==========================
+OBJECTIVES:
+ 1 - Strike & Capture Abu Musa Island
+ 2 - Strike & Capture Sirri Island
+
+Armored units on each target:
+ - 16x BMP-2
+
+Air Defence units on each target:
+ - 1x SAM Tor 
+ - 1x SAM Osa
+ - 2x SRD ZSU-23-4 Shilka 
+ - 4x Support tracks
+ 
+Achive missions goals with whatever means 
+necessary. 
+
+
+===== WAYPOINTS ========================
+
+AIRPLANES
+ 1 - HOME BASE   : Qeshm Island
+ 2 - ALT BASE    : Bandar Lengeh
+ 3 - DEFEND #1   : Tunb Island AFB
+ 4 - DEFEND #2   : Tunb Kochak
+ 5 - TARGET #1   : Abu Musa Island
+ 6 - TARGET #2   : Sirri Island
+ 
+HELIS
+ 1 - DEFEND #1 & FARP : Tunb Island aFB
+ 2 - DEFEND #2        : Tunb Kochak
+ 3 - TARGET #1        : Abu Musa Island
+ 4 - TARGET #2        : Sirri Island 
+
+
+===== COMMS ===========================
+
+SRS Common               : 251.000 (AM)           
+
+AWACS/EWR/GCI
+ - Overlord 1-1          : 251.000 (AM)
+ - Axeman-1 (Ground EWR) : 131.000 (AM)
+
+FAC Abu Musa Island:
+ - Eyeball-1 SOF JTAC    : 126.500 (AM)
+
+FAC Sirri Island:
+ - Pointer-1 SOF JTAC    : 126.200 (AM)
+
+AFAC:
+ - Dodge MQ-1A Predator  : 126.750 (AM) 
+
+HELI CARRIER LHA-1 Tarawa
+ - TACAN            : 2X [RTR]
+ - ATC              : 127.600
+
+Qeshm Intl
+ - TACAN (portable) : 15X [KHM]
+ - VOR              : 117.100 [KHM]
+ - NDB              : 233.00 kHz [KHM]
+ - ATC              : 250.150, 118.050, 
+                      38.550, 3.825 
+
+Bandar Lengeh
+ - TACAN (portable) : 16X [LEN]
+ - VOR              : 114.800 [LEN]
+ - NDB              : 408.00 kHz [LEN]
+ 
+Tunb Island
+ - TACAN (portable) : 17X [TUN]
+
+Tunb Kochak
+ - TACAN            : 89X [KCK]
+ 
+ 
+ 
+ 

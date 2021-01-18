@@ -1,0 +1,1 @@
+trigger.action.outText("DEBUG: gloval var  _respawnTimesMax = " .. _respawnTimesMax, 30)
