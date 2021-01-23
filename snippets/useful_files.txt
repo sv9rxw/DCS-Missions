@@ -1,0 +1,15 @@
+
+
+-- reference file used for developing hooks and DCS exports --
+F:\Program Files\Eagle Dynamics\DCS World\Scripts\Export.lua
+
+-- Helping utility metods
+F:\Program Files\Eagle Dynamics\DCS World\Scripts\Common\utils.lua
+
+-- DCS control API
+F:\Program Files\Eagle Dynamics\DCS World\API\DCS_ControlAPI.md
+https://wiki.hoggitworld.com/view/DCS_server_gameGUI
+
+
+-- F16C specific 
+F:\Program Files\Eagle Dynamics\DCS World\Mods\aircraft\F-16C\Cockpit\Scripts\clickabledata.lua
