@@ -18,12 +18,10 @@ for i=1,4 do
         end
             
         if (_unitAltFeet > ALT_MAX) then
-            msg = 'ALTITUDE: ' .. _name .. ' is ABOVE ' .. tostring(ALT_MAX) .. ' feet'
-            --trigger.action.outText(msg, 1)                        
+            msg = 'ALTITUDE: ' .. _name .. ' is ABOVE ' .. tostring(ALT_MAX) .. ' feet'                           
             trigger.action.outTextForGroup(_groupId, msg, 1, false)
         elseif (_unitAltFeet < ALT_MIN) then
-            msg = 'ALTITUDE: ' .. _name .. ' is BELOW ' .. tostring(ALT_MIN) .. ' feet'
-            --trigger.action.outText(msg, 1)
+            msg = 'ALTITUDE: ' .. _name .. ' is BELOW ' .. tostring(ALT_MIN) .. ' feet'            
             trigger.action.outTextForGroup(_groupId, msg, 1, false)
         end
     end    
