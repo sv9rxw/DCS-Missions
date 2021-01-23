@@ -1,22 +1,32 @@
 
 ----- Check contraints satisfaction ---------------------------------------
-_unitName = 'Thunder-1'
-_unit = Unit.getByName('Thunder-1')
 
-if (_unit == nil) then
-    trigger.action.outText('DEBUG: Internal Error: _unit \'' .. _unitName .. '\' is nil', 10)
-else
-    _unitPoint = _unit:getPoint() -- returns Vec3 object
-    _unitAltMeters = _unitPoint.y        
-    _unitAltFeet = mist.utils.metersToFeet(_unitAltMeters)    
-        
+_unitNameTable = {'Thunder-1', 'Thunder-2', 'Thunder-3', 'Thunder-4'}
 
-    if (_unitAltFeet > ALT_MAX) then
-        msg = 'WARNING: ' .. _unitName .. ' is above ' .. tostring(ALT_MAX) .. ' feet'
-        trigger.action.outText(msg, 1)
-    elseif (_unitAltFeet < ALT_MIN) then
-        msg = 'WARNING: ' .. _unitName .. ' is below ' .. tostring(ALT_MIN) .. ' feet'
-        trigger.action.outText(msg, 1)
-    end
+for i=1,4 do
+    _unit = Unit.getByName(_unitNameTable[i])
+    if (_unit ~= nil) then
+        _unitPoint = _unit:getPoint() -- returns Vec3 object
+        _unitAltMeters = _unitPoint.y        
+        _unitAltFeet = mist.utils.metersToFeet(_unitAltMeters)            
+        _group = _unit:getGroup()
+        _groupId = _group:getID()
+
+        _name = _unit:getPlayerName()
+        if (_name == nil) then
+            _name = _unitNameTable[i]
+        end
+            
+        if (_unitAltFeet > ALT_MAX) then
+            msg = 'ALTITUDE: ' .. _name .. ' is ABOVE ' .. tostring(ALT_MAX) .. ' feet'
+            --trigger.action.outText(msg, 1)                        
+            trigger.action.outTextForGroup(_groupId, msg, 1, false)
+        elseif (_unitAltFeet < ALT_MIN) then
+            msg = 'ALTITUDE: ' .. _name .. ' is BELOW ' .. tostring(ALT_MIN) .. ' feet'
+            --trigger.action.outText(msg, 1)
+            trigger.action.outTextForGroup(_groupId, msg, 1, false)
+        end
+    end    
 end
+
 ---------------------------------------------------------------------------
