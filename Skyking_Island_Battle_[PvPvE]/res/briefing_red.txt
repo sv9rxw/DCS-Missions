@@ -10,7 +10,7 @@ Air Defence units on each target:
  - 1x SAM Tor 
  - 1x SAM Osa
  - 2x SRD ZSU-23-4 Shilka 
- - 4x Support tracks
+ - 4x Support Vehicles
  
 Achive missions goals with whatever means 
 necessary. 
@@ -71,7 +71,9 @@ Tunb Island
 
 Tunb Kochak
  - TACAN            : 89X [KCK]
- 
- 
- 
- 
+
+FARP 1 in Bandar Lengeh [Otkrytka]
+ - ATC                 : 126.80
+
+FARP 2 in Qeshm,[Vetka]
+ - ATC                 : 126.20

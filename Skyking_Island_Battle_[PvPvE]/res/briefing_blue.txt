@@ -1,4 +1,4 @@
-===== MISSION ==========================
+===== MISSION =========================
 OBJECTIVES:
  1 - Strike & Capture Tunb Island AFB
  2 - Strike & Capture Tunb Kochak
@@ -10,7 +10,7 @@ Air Defence units on each target:
  - 1x SAM Tor 
  - 1x SAM Osa
  - 2x SRD ZSU-23-4 Shilka 
- - 4x Support tracks
+ - 4x Support Vehicles
 
 Achive missions goals with whatever means 
 necessary. 
@@ -49,10 +49,7 @@ FAC Tunb Kochak:
 AFAC:
  - Dodge MQ-1A Predator  : 130.200 (AM)
 
- 
-HELI CARRIER LHA-1 Tarawa
- - TACAN            : 1X [BTR]
- - ATC              : 127.500 
+
 
 Al Minhad AFB 
  - TACAN            : 99X [MIN]
@@ -75,3 +72,13 @@ Sirri Island
  - NDB              : 300.00 kHZ [SIR]
  - ATC              : 250.250, 135.050,
                       38.650, 3.875
+
+ HELI CARRIER LHA-1 Tarawa
+ - TACAN            : 1X [BTR]
+ - ATC              : 127.500 
+
+FARP-1 in CP72 [London]
+ - ATC             : 128.20
+
+FARP-2 in DP07 [Dallas]
+ - ATC             : 128.45
