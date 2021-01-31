@@ -1,5 +1,6 @@
 AGL_MAX = 800  -- feet
 AGL_MAX_PASSED = false
+DETECTION_DELAY = 30 -- seconds
 
 BLUE_COMMAND_GROUP = nil
 BLUE_COMMAND_GROUP_NAME = "Cmd"
@@ -128,6 +129,12 @@ function setAGLThershold(arg)
     AGL_MAX = arg['Threshold']
     msg = "Set new AGL threshold at " .. AGL_MAX .. " feet"
     trigger.action.outTextForCoalition(coalition.side.BLUE, msg, 10)
+end
+
+function blueDetected(arg, time)
+    if AGL_MAX_PASSED == true then
+        trigger.action.setUserFlag("10", true)
+    end
 end
 
 world.addEventHandler(Event_Handler)

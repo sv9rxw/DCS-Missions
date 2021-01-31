@@ -19,6 +19,8 @@ if #unitNamesToCheck > 0 then
 
     len = #uTable
 
+    local any_unit_above_threshold = false
+
     for idx=1,len do
         local msg = ""
         --local _unit = ACTIVE_AIRCRAFTS[idx]    
@@ -32,7 +34,12 @@ if #unitNamesToCheck > 0 then
             
                     
             if (_unitAGL  > AGL_MAX) then
-                AGL_MAX_PASSED = true
+                if AGL_MAX_PASSED == false then
+                    -- schedule detection function
+                    timer.scheduleFunction(blueDetected, {}, timer.getTime() + DETECTION_DELAY)
+                end                
+
+                any_unit_above_threshold = true
                 msg = "SKYKING. AGL WARNING: " .. _name .. " is ABOVE threshold " .. tostring(AGL_MAX) .. " feet at " .. tostring(_unitAGL) .. " feet."            
                 trigger.action.outTextForCoalition(coalition.side.BLUE, msg, 1)
                 -- msg = "DEBUG: land altitude at unit point = " .. tostring(_landAltFeet) .. " -> unit AGL = " .. tostring(_unitAltFeet - _landAltFeet) .. " feet"
@@ -43,6 +50,8 @@ if #unitNamesToCheck > 0 then
             trigger.action.outTextForCoalition(coalition.side.BLUE, msg, 10)
         end
     end
+
+    AGL_MAX_PASSED = any_unit_above_threshold
 
 end
 
