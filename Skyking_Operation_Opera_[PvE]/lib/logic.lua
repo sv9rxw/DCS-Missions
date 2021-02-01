@@ -34,9 +34,12 @@ if #unitNamesToCheck > 0 then
             
                     
             if (_unitAGL  > AGL_MAX) then
-                if AGL_MAX_PASSED == false then
-                    -- schedule detection function
-                    timer.scheduleFunction(blueDetected, {}, timer.getTime() + DETECTION_DELAY)
+                local _userFlagValue = trigger.action.getUserFlag(DETECTION_USER_FLAG_NAME)
+                if _userFlagValue == false then
+                    if AGL_MAX_PASSED == false then                                            
+                        -- schedule detection function
+                        timer.scheduleFunction(blueDetected, {}, timer.getTime() + DETECTION_DELAY)
+                    end
                 end                
 
                 any_unit_above_threshold = true
