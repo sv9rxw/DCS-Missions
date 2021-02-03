@@ -1,0 +1,46 @@
+
+Iran is constructing in a nuclear facility near Palmyra at DU63
+with 2 nuclear reactors. 
+
+BLUEFOR must perform a precision deep strike to those 2 reactors and
+completely destroy them.
+
+BLUEFOR intelligence has found a path to the target, along which enemy 
+air defences are not capable of discovering us.
+
+We shall do a stealthy deep penetration into enemy air space by flying
+very low, below 500 feet AGL and staying on course as defined by
+our given waypoints.
+
+In specific we shall:
+ 1. Take-off from Ramat David AFB
+ 2. Join above Sea of Galilee and fly low just before exiting
+    Isreali borders. 
+ 3. Fly through the enemy air space in our given path and below
+    500 feet AGL. 
+ 4. We can prepare for strike and increase altitude when we exiting
+    the AGL restriction zone - marked by BULLSEYE and Waypoint 8,
+    west of Palmyra town. Nevertheless, fly as low as possible.
+ 5. We will enter restricted airspace above the nuclear reactor to
+    perform the strike. As soon as we entered that airspace, we
+    will have 3 - 10 minutes window before red forces are mobilized
+    and alert.
+ 6. We shall destroy both reactors and get out as fast as possible
+    all the way back - waypoints in reverse order.
+ 7. Be very alert since on the way back, RED forces will be on alert
+    and we may engange interceptors or Air Defence units on the way.
+ 8. Enter Isreali border and lond at Ramat David. Politics and 
+    diplomacy shall do the rest.
+
+ - DO NOT ENGAGE any unit on the way in and before target zone.
+ - DO NOT VIOLATE the AGL threshold (500 feet AGL) in the way in,
+   outside of israeli borders.
+   (depiected by the white circle in Mission Planner)
+ - DO NOT DEVIATE from the course and enter dangerous Air Defence zones.
+   (depicted by the red circles in Mission Planner.)
+ - DO NOT EVER hit a neutral / civilian airplane or ground unit. NEVER.
+
+
+SKYKING is with us, observing the mission status and will be helping us
+during the mission be informing us of any AGL threshold violation or
+course deviation.
