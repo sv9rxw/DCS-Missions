@@ -82,10 +82,10 @@ if _userFlagValue == 0 then
                 _uTable = nil
             end
         else
-            LOG("#ACTIVE_AIRCRAFT_NAMES == 0")
+            LOG("#_activePlayerUnits == 0")
         end           
     else
-        LOG("ACTIVE_AIRCRAFTS == nil")
+        LOG("_activePlayerUnits == nil")
     end  
     
     _activePlayerUnits = nil

@@ -18,21 +18,7 @@ function __FUNC__() return debug.getinfo(2, 'n').name end
 function LOG(txt) env.info("SKYKING -- " .. txt, false) end
 function MSG(txt) trigger.action.outText("SKYKING -- " .. txt, 10) end
 
-function createActiveAicraftNamesTable()
-    
-    if ACTIVE_AIRCRAFTS == nil then
-        ACTIVE_AIRCRAFT_NAMES = {}
-        return
-    end
-
-    ACTIVE_AIRCRAFT_NAMES = nil
-    ACTIVE_AIRCRAFT_NAMES = {}    
-
-    for i=1,#ACTIVE_AIRCRAFTS do
-        table.insert(ACTIVE_AIRCRAFT_NAMES, ACTIVE_AIRCRAFTS[i]:getName())
-    end
-end
-
+--[[ deprecated
 function activeRemove(u)
     local len = 0
     local temp = nil
@@ -65,6 +51,7 @@ function activeRemove(u)
     end
     return res
 end
+]]
 
 function metersToFeet(m)
     return m/0.3048
@@ -158,55 +145,34 @@ function Event_Handler:onEvent(event)
         ]]
 
         if event.id == world.event.S_EVENT_BIRTH then            
-            msg = _playerName .. " entered " .. _unit:getName()
-            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
-            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()
+            msg = _playerName .. " entered " .. _unit:getName()                        
         elseif event.id == world.event.S_EVENT_DEAD then
-            msg = _playerName .. " in " .. _unit:getName() .. " is dead"
-            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
-            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()
+            msg = _playerName .. " in " .. _unit:getName() .. " is dead"                           
         elseif event.id == world.event.S_EVENT_PILOT_DEAD then
             msg = _playerName .. " pilot in " .. _unit:getName() .. " is dead"
-            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
-            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()                   
         elseif event.id == world.event.S_EVENT_UNIT_LOST then                         
             msg = _playerName .. " in " .. _unit:getName() .. " was lost"   
-            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
-            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()                          
         elseif event.id == world.event.S_EVENT_CRASH then                        
             msg = "Player " .. _playerName .. " in unit " .. _unit:getName() .. " crashed.\n"                        
         else
             return
         end
-        local num_active = #ACTIVE_AIRCRAFTS
-        msg = msg .. tostring(num_active) .. " active aircrafts for BLUEFOR"
         trigger.action.outTextForCoalition(coalition.side.BLUE, msg, 10)                 
     end
 end
 
 function showActiveAirplanes(arg)
     
-    if ACTIVE_AIRCRAFTS == nil then
-        trigger.action.outText("DEBUG: Internal Error: showActiveAirplanes(): ACTIVE_AIRCRAFTS == nil" , 2)
-        return
-    end
-    
-    local idx = 0
-    local len = 0
-    local msg = ""
-
-    len = #ACTIVE_AIRCRAFTS
-    msg = "Active BLUE Aircrafts: " .. tostring(len) .. "\n"
-    
-    for idx=1,len do
-        local _unit = ACTIVE_AIRCRAFTS[idx]
-        if _unit == nil then
-            trigger.action.outText("DEBUG: Internal Error: showActiveAirplanes(): unit == nil in ACTIVE_AIRCRAFTS at " .. tostring(idx) , 2)
+    local _activePlayerUnits = coalition.getPlayers(coalition.side.BLUE)
+    if _activePlayerUnits ~= nil then
+        local msg = "Active aircrafts: " .. tostring(#_activePlayerUnits) .. "\n"
+        for i=1,#_activePlayerUnits do
+            msg = msg .. tostring(i) .. ". " .. _activePlayerUnits[i]:getPlayerName() .. " in " .. _activePlayerUnits[i]:getName() .. "\n"
         end
-        msg = msg .. tostring(idx) .. ". " .. _unit:getPlayerName() .. " in " .. _unit:getName() .. "\n"        
-    end 
-
-    trigger.action.outTextForCoalition(coalition.side.BLUE, msg, 10) 
+        trigger.action.outTextForCoalition(coalition.side.BLUE, msg, 10) 
+    else   
+        LOG(__FUNC__() .. ": _activePlayerUnits == nil")
+    end           
 end
 
 function setAGLThershold(arg)
