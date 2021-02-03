@@ -18,6 +18,21 @@ function __FUNC__() return debug.getinfo(2, 'n').name end
 function LOG(txt) env.info("SKYKING -- " .. txt, false) end
 function MSG(txt) trigger.action.outText("SKYKING -- " .. txt, 10) end
 
+function createActiveAicraftNamesTable()
+    
+    if ACTIVE_AIRCRAFTS == nil then
+        ACTIVE_AIRCRAFT_NAMES = {}
+        return
+    end
+
+    ACTIVE_AIRCRAFT_NAMES = nil
+    ACTIVE_AIRCRAFT_NAMES = {}    
+
+    for i=1,#ACTIVE_AIRCRAFTS do
+        table.insert(ACTIVE_AIRCRAFT_NAMES, ACTIVE_AIRCRAFTS[i]:getName())
+    end
+end
+
 function activeRemove(u)
     local len = 0
     local temp = nil
@@ -127,19 +142,9 @@ function Event_Handler:onEvent(event)
             return
         end
 
-        if event.id == world.event.S_EVENT_BIRTH then            
-            MSG("S_EVENT_BIRTH " .. _playerName)
-        end
-
-        if event.id == world.event.S_EVENT_DEAD then
-            MSG("S_EVENT_DEAD " .. _playerName )
-        end
-
-        if event.id == world.event.S_EVENT_PILOT_DEAD then
-            MSG("S_EVENT_PILOT_DEAD " .. _playerName )
-        end
-
-        if event.id == world.event.S_EVENT_PLAYER_ENTER_UNIT then                            
+        -- those events do not fire in multiplayer
+        --[[ 
+            if event.id == world.event.S_EVENT_PLAYER_ENTER_UNIT then                            
             table.insert(ACTIVE_AIRCRAFTS, _unit)
             table.insert(ACTIVE_AIRCRAFT_NAMES, _unit:getName())
             msg = "Player " .. _playerName .. " entered unit " .. _unit:getName() .. "\n"                       
@@ -150,20 +155,28 @@ function Event_Handler:onEvent(event)
             else
                 LOG(__FUNC__() .. " S_EVENT_PLAYER_LEAVE_UNIT: _unit " .. _unit:getName() .. " not found in ACTIVE_AIRCRAFTS table")
             end
-        elseif event.id == world.event.S_EVENT_UNIT_LOST then                                    
-            status = activeRemove(_unit)  
-            if status == true then
-                msg = "Player " .. _playerName .. " in unit " .. _unit:getName() .. " has been killed.\n"
-            else
-                LOG(__FUNC__() .. " S_EVENT_UNIT_LOST: _unit " .. _unit:getName() .. " not found in ACTIVE_AIRCRAFTS table")
-            end                          
+        ]]
+
+        if event.id == world.event.S_EVENT_BIRTH then            
+            msg = _playerName .. " entered " .. _unit:getName()
+            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
+            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()
+        elseif event.id == world.event.S_EVENT_DEAD then
+            msg = _playerName .. " in " .. _unit:getName() .. " is dead"
+            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
+            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()
+        elseif event.id == world.event.S_EVENT_PILOT_DEAD then
+            msg = _playerName .. " pilot in " .. _unit:getName() .. " is dead"
+            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
+            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()                   
+        elseif event.id == world.event.S_EVENT_UNIT_LOST then                         
+            msg = _playerName .. " in " .. _unit:getName() .. " was lost"   
+            ACTIVE_AIRCRAFTS = coalition.getPlayers(coalition.side.BLUE)        
+            ACTIVE_AIRCRAFT_NAMES = createActiveAicraftNamesTable()                          
         elseif event.id == world.event.S_EVENT_CRASH then                        
-            status = activeRemove(_unit)  
-            if status == true then
-                msg = "Player " .. _playerName .. " in unit " .. _unit:getName() .. " crashed.\n"
-            else                
-                LOG(__FUNC__() .. " S_EVENT_CRASH: _unit " .. _unit:getName() .. " not found in ACTIVE_AIRCRAFTS table")
-            end                                  
+            msg = "Player " .. _playerName .. " in unit " .. _unit:getName() .. " crashed.\n"                        
+        else
+            return
         end
         local num_active = #ACTIVE_AIRCRAFTS
         msg = msg .. tostring(num_active) .. " active aircrafts for BLUEFOR"
