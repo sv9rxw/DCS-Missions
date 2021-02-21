@@ -1,0 +1,47 @@
+Battle for the islands. Red & Blue coalitions are in war 
+for complete control of the four Islands
+
+- Red coalition DEFENDS Tunb Island & Tunb Kochak
+  and CAPTURES Abu Musa & Sirri.
+
+- Blue DEFENDS Abu Musa & Sirri and
+  CAPTURES Tunb Island & Tunb Kochak.
+
+PRIMARY TARGETS on EACH target island are 
+ - 16x BMP-2 vehicles.
+
+SECONDAY TARGETS are Air Defence units
+on EACH island consisting of:
+ - 1x SAM Tor 
+ - 1x SAM Osa
+ - 2x SRD ZSU-23-4 Shilka 
+ - 4x Support Vehicles
+
+Destroy all primary targets in a target island
+and then 16x FRIENDLY BMP-2s will be activated 
+to capture the airfield. You may need to also
+destroy the co-located air defence systems to 
+help out in mission advance.
+
+BLUE home base is Al Minhad AFB. All slots in
+this airport are HOT. Furthremore, there are 2x 
+COLD F-16C slots on Abu Musa island.
+
+RED home base is Qeshm Island Airport. All slots in
+this airport are HOT. Furthremore, there are 2x 
+COLD F-16C slots on Tunb Island AFB.
+
+You can rearm/refuel in any friendly air base.
+
+BE AWARE not to deviate too far the target area
+and/or your friendly bases into enemy terrotory, 
+since there are known and unknown Air Defence 
+capabilities.
+
+Each coalition has a Special Forces JTAC unit 
+in each of the enemy target islands that can help
+out in air-to-ground by lasing and smoking
+enemy units.
+Furthermore each coalition a UAV AFAC loitering 
+above and near the target areas that can provide
+AFAC via radio only.

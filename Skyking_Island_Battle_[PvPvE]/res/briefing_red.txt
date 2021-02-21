@@ -3,10 +3,12 @@ OBJECTIVES:
  1 - Strike & Capture Abu Musa Island
  2 - Strike & Capture Sirri Island
 
-Armored units on each target:
- - 16x BMP-2
+PRIMARY TARGETs on each island:
+ - 16x BMP-2 : destroy them to activate 
+   16x freindly BMP-2 to help capture that
+   airfield.
 
-Air Defence units on each target:
+SECONDARY TARGETS (Air Defence) on each island:
  - 1x SAM Tor 
  - 1x SAM Osa
  - 2x SRD ZSU-23-4 Shilka 
@@ -15,6 +17,12 @@ Air Defence units on each target:
 Achive missions goals with whatever means 
 necessary. 
 
+===== AIRPLANEs ========================
+ - Mythos : 4x F-16C [Hot]   - Qeshm Island
+ - Alfa   : 4x F-16C [Hot]   - Qeshm Island
+ - Fix    : 2x JF-17 [Hot]   - Qeshm Island
+ - Fisher : 2x M-2000C [hot] - Qeshm Island
+ - Amstel : 2x F-16C [Cold]  - Tunb Island AFB 
 
 ===== WAYPOINTS ========================
 
@@ -26,33 +34,25 @@ AIRPLANES
  5 - TARGET #1   : Abu Musa Island
  6 - TARGET #2   : Sirri Island
  
-HELIS
- 1 - DEFEND #1 & FARP : Tunb Island aFB
- 2 - DEFEND #2        : Tunb Kochak
- 3 - TARGET #1        : Abu Musa Island
- 4 - TARGET #2        : Sirri Island 
+
+===== AWACS & FAC =====================
+
+AWACS:
+ - Overlord 1-1          : 251.000
+Ground EWR
+ - Axeman-1              : 131.000
+
+FAC/JTAC [Abu Musa Island]:
+ - Eyeball-1             : 126.500
+
+FAC/JTAC [Sirri Island]:
+ - Pointer-1             : 126.200
+ 
+AFAC MQ-1A Predator UAV:
+ - Dodge 4-1             : 126.750
 
 
-===== COMMS ===========================
-
-SRS Common               : 251.000 (AM)           
-
-AWACS/EWR/GCI
- - Overlord 1-1          : 251.000 (AM)
- - Axeman-1 (Ground EWR) : 131.000 (AM)
-
-FAC Abu Musa Island:
- - Eyeball-1 SOF JTAC    : 126.500 (AM)
-
-FAC Sirri Island:
- - Pointer-1 SOF JTAC    : 126.200 (AM)
-
-AFAC:
- - Dodge MQ-1A Predator  : 126.750 (AM) 
-
-HELI CARRIER LHA-1 Tarawa
- - TACAN            : 2X [RTR]
- - ATC              : 127.600
+===== RADIO NAV & ATC =================
 
 Qeshm Intl
  - TACAN (portable) : 15X [KHM]
@@ -60,20 +60,26 @@ Qeshm Intl
  - NDB              : 233.00 kHz [KHM]
  - ATC              : 250.150, 118.050, 
                       38.550, 3.825 
-
+					  
 Bandar Lengeh
  - TACAN (portable) : 16X [LEN]
  - VOR              : 114.800 [LEN]
  - NDB              : 408.00 kHz [LEN]
  
-Tunb Island
- - TACAN (portable) : 17X [TUN]
+Kish Intl 
+ - TACAN            : 112X [KIH]
+ - VOR              : 117.400 [KIS]
+ - NDB              : 201.00 kHz [KIH]
+ - ATC              : 250.650, 121.650,
+                      39.100, 4.100
 
-Tunb Kochak
- - TACAN            : 89X [KCK]
+HELI CARRIER LHA-1 Tarawa
+ - TACAN            : 2X [RTR]
+ - ATC              : 127.600
 
 FARP 1 in Bandar Lengeh [Otkrytka]
  - ATC                 : 126.80
 
-FARP 2 in Qeshm,[Vetka]
+FARP 2 in Qeshm [Vetka]
  - ATC                 : 126.20
+ 

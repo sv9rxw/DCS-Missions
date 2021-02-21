@@ -39,6 +39,7 @@ function enableJTAC(arg)
     ctld.JTACAutoLase(arg['JTAC'], arg['Code'])
 end
 
+--[[
 Event_Handler = {}
 function Event_Handler:onEvent(event)
     if (world.event.S_EVENT_PLAYER_ENTER_UNIT  == event.id) then
@@ -61,7 +62,8 @@ function Event_Handler:onEvent(event)
         end
     end
 end
-
+]]
+--[[
 function enableDebug(arg) then
     if (arg == nil) then
         trigger.action.outText("DEBUG: Internal Error: enableJTAC(): arg == nil", 10)
@@ -80,11 +82,12 @@ function enableDebug(arg) then
 
     trigger.action.outTextForCoalition(arg['Coalition'], "Debug Mode enabled for Blue coalition." )
 end
+]]
 trigger.action.outText(" - Functions defined", 10)
 ---------------------------------------------------------------------------
 
 ----- Events --------------------------------------------------------------
-world.addEventHandler(Event_Handler)
+-- world.addEventHandler(Event_Handler)
 trigger.action.outText(" - Event handlers initialized", 10)
 ---------------------------------------------------------------------------
 
@@ -101,9 +104,9 @@ missionCommands.addCommandForCoalition(coalition.side.RED, 'Enable JTAC on Abu M
 missionCommands.addCommandForCoalition(coalition.side.RED, 'Enable JTAC on Sirri', nil, enableJTAC, {['JTAC'] = 'Red-Sirri-JTAC-1', ['Code'] = 1688} )
 
 --- Debug Menu
-menuDebug = missionCommands.addSubMenu('Debug...')
-missionCommands.addCommandForCoalition(coalition.side.BLUE, 'Enable JTAC on Abu Musa', nil, menuDebug, {['Coalition'] = coalition.side.BLUE} )
-missionCommands.addCommandForCoalition(coalition.side.RED, 'Enable JTAC on Abu Musa', nil, menuDebug, {['Coalition'] = coalition.side.RED} )
+-- menuDebug = missionCommands.addSubMenu('Debug...')
+-- missionCommands.addCommandForCoalition(coalition.side.BLUE, 'Enable JTAC on Abu Musa', nil, menuDebug, {['Coalition'] = coalition.side.BLUE} )
+-- missionCommands.addCommandForCoalition(coalition.side.RED, 'Enable JTAC on Abu Musa', nil, menuDebug, {['Coalition'] = coalition.side.RED} )
 
 trigger.action.outText(" - Radio menus and items added", 10)
 ---------------------------------------------------------------------------

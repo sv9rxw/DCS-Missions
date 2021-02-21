@@ -3,10 +3,12 @@ OBJECTIVES:
  1 - Strike & Capture Tunb Island AFB
  2 - Strike & Capture Tunb Kochak
 
-Armored units on each target:
- - 16x BMP-2
+PRIMARY TARGETs on each island:
+ - 16x BMP-2 : destroy them to activate 
+   16x freindly BMP-2 to help capture that
+   airfield.
 
-Air Defence units on each target:
+SECONDARY TARGETS (Air Defence) on each island:
  - 1x SAM Tor 
  - 1x SAM Osa
  - 2x SRD ZSU-23-4 Shilka 
@@ -15,6 +17,13 @@ Air Defence units on each target:
 Achive missions goals with whatever means 
 necessary. 
 
+===== AIRPLANE SLOTS ===================
+ - Ouzo     : 4x F-16C [Hot] - Al Minhad AFB
+ - Raki     : 4x F-16C [Hot] - Al Minhad AFB
+ - Tsipouro : 4x F-16C [Hot] - Al Minhad AFB
+ - Vodka    : 2x JF-17 [Hot] - Al Minhad AFB
+ - Whiskey  : 2x M-2000C [Hot] - Al Minhad AFB
+ - Bourbon  : 2x F-16C [Cold] - Sirri Island
 
 ===== WAYPOINTS ========================
 
@@ -25,31 +34,24 @@ AIRPLANES
  4 - DEFEND #2   : Sirri Island
  5 - TARGET #1   : Tunb Island aFB
  6 - TARGET #2   : Tunb Kochak
- 
-HELIS
- 1 - DEFEND #1 & FARP : Abu Musa Island
- 2 - DEFEND #2        : Sirri Island
- 3 - TARGET #1        : Tunb Island AFB
- 4 - TARGET #2        : Tunb Kochak
 
+===== AWACS & FAC =====================
+AWACS:
+ - Overlord 1-1          : 251.000
+ - Magic 1-1 (standby)   : 251.000
+Ground EWR [Sirri Island]:
+ - Axeman-1 (Ground EWR) : 131.000
 
-===== COMMS ===========================
-SRS Common               : 251.000 (AM)  
+FAC/JTAC [Abu Musa Island]:
+ - Eyeball-1             : 131.500
 
-AWACS/EWR/GCI
- - Overlord 1-1          : 251.000 (AM)
- - Axeman-1 (Ground EWR) : 131.000 (AM)
+FAC/JTAC [Abu Musa Island]:
+ - Pointer-1             : 132.500
 
-FAC Tunb Island:
- - Eyeball-1 SOF JTAC    : 131.500 (AM)
+AFAC MQ-1A Predator UAV
+ - Dodge 4-1             : 130.200
 
-FAC Tunb Kochak:
- - Pointer-1 SOF JTAC    : 132.500 (AM)
-
-AFAC:
- - Dodge MQ-1A Predator  : 130.200 (AM)
-
-
+===== RADIO NAV & ATC =================
 
 Al Minhad AFB 
  - TACAN            : 99X [MIN]
@@ -61,19 +63,23 @@ Ras Al Khaimah Intl
  - VOR              : 113.600
  - ATC              : 250.900, 121.600,
                       39.300, 4.200
+
+Khasab Intl
+ - ATC              : 250.000, 124.350
+                      38.400, 3.750
  
 Abu Musa Island
  - NDB              : 285.00 kHz
  - ATC              : 250.400, 122.900, 
                       38.850, 3.975
- 
+
 Sirri Island
  - VOR              : 113.750 [SIR]
  - NDB              : 300.00 kHZ [SIR]
  - ATC              : 250.250, 135.050,
                       38.650, 3.875
 
- HELI CARRIER LHA-1 Tarawa
+HELI CARRIER LHA-1 Tarawa
  - TACAN            : 1X [BTR]
  - ATC              : 127.500 
 
