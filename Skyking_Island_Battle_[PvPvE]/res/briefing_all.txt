@@ -25,13 +25,19 @@ help out in mission advance.
 
 BLUE home base is Al Minhad AFB. All slots in
 this airport are HOT. Furthremore, there are 2x 
-COLD F-16C slots on Abu Musa island.
+COLD F-16C slots on Abu Musa island. 
 
 RED home base is Qeshm Island Airport. All slots in
 this airport are HOT. Furthremore, there are 2x 
 COLD F-16C slots on Tunb Island AFB.
 
-You can rearm/refuel in any friendly air base.
+You can rearm/refuel in any friendly air base,
+EXCEPT from the four islands in the battle area. 
+(Abu Musa, Sirri island, Tunb Island and Tunb Kochak).
+
+There are also a Tactical Commander and 
+a JTAC/Operator slot available for both sides.
+
 
 BE AWARE not to deviate too far the target area
 and/or your friendly bases into enemy terrotory, 
@@ -45,3 +51,14 @@ enemy units.
 Furthermore each coalition a UAV AFAC loitering 
 above and near the target areas that can provide
 AFAC via radio only.
+
+*** GAMEPLAY NOTES
+The following options are enforced:
+ - F10 map view : Map only
+ - Labels : none
+ - Eady Radio Comms : disabled
+ - External Views : permitted
+
+ - Ground units can be tasked and controlled 
+  directly by players that have the Combined 
+  Arms module.
