@@ -4,8 +4,8 @@ OBJECTIVES:
  2 - Strike & Capture Tunb Kochak
 
 PRIMARY TARGETs on each island:
- - 16x BMP-2 : destroy them to activate 
-   16x freindly BMP-2 to help capture that
+ - 8x BMP-2 : destroy them to activate 
+   friendly BMP-2s to help capture that
    airfield.
 
 SECONDARY TARGETS (Air Defence) on each island:
@@ -23,7 +23,6 @@ necessary.
  - Tsipouro : 4x F-16C [Hot] - Al Minhad AFB
  - Vodka    : 2x JF-17 [Hot] - Al Minhad AFB
  - Whiskey  : 2x M-2000C [Hot] - Al Minhad AFB
- - Bourbon  : 2x F-16C [Cold] - Sirri Island
 
 ===== WAYPOINTS ========================
 
@@ -41,6 +40,7 @@ AWACS:
  - Magic 1-1 (standby)   : 251.000
 Ground EWR [Sirri Island]:
  - Axeman-1 (Ground EWR) : 131.000
+- Warrior-1             : 132.000
 
 FAC/JTAC [Abu Musa Island]:
  - Eyeball-1             : 131.500

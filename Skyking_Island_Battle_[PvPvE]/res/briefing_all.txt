@@ -8,7 +8,7 @@ for complete control of the four Islands
   CAPTURES Tunb Island & Tunb Kochak.
 
 PRIMARY TARGETS on EACH target island are 
- - 16x BMP-2 vehicles.
+ - 8x BMP-2 vehicles.
 
 SECONDAY TARGETS are Air Defence units
 on EACH island consisting of:
@@ -18,18 +18,16 @@ on EACH island consisting of:
  - 4x Support Vehicles
 
 Destroy all primary targets in a target island
-and then 16x FRIENDLY BMP-2s will be activated 
+and then FRIENDLY BMP-2s will be activated 
 to capture the airfield. You may need to also
 destroy the co-located air defence systems to 
 help out in mission advance.
 
 BLUE home base is Al Minhad AFB. All slots in
-this airport are HOT. Furthremore, there are 2x 
-COLD F-16C slots on Abu Musa island. 
+this airport are HOT. 
 
 RED home base is Qeshm Island Airport. All slots in
-this airport are HOT. Furthremore, there are 2x 
-COLD F-16C slots on Tunb Island AFB.
+this airport are HOT.
 
 You can rearm/refuel in any friendly air base,
 EXCEPT from the four islands in the battle area. 

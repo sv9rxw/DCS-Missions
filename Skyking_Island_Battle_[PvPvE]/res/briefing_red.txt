@@ -4,8 +4,8 @@ OBJECTIVES:
  2 - Strike & Capture Sirri Island
 
 PRIMARY TARGETs on each island:
- - 16x BMP-2 : destroy them to activate 
-   16x freindly BMP-2 to help capture that
+ - 8x BMP-2 : destroy them to activate 
+   friendly BMP-2s to help capture that
    airfield.
 
 SECONDARY TARGETS (Air Defence) on each island:
@@ -22,7 +22,6 @@ necessary.
  - Alfa   : 4x F-16C [Hot]   - Qeshm Island
  - Fix    : 2x JF-17 [Hot]   - Qeshm Island
  - Fisher : 2x M-2000C [hot] - Qeshm Island
- - Amstel : 2x F-16C [Cold]  - Tunb Island AFB 
 
 ===== WAYPOINTS ========================
 
@@ -39,8 +38,10 @@ AIRPLANES
 
 AWACS:
  - Overlord 1-1          : 251.000
+ - Magic 1-1 (standby)   : 251.000
 Ground EWR
  - Axeman-1              : 131.000
+ - Warrior-1             : 132.000
 
 FAC/JTAC [Abu Musa Island]:
  - Eyeball-1             : 126.500
